@@ -6,6 +6,7 @@
   --blue-dark: #1b55ff;
   --purple: #7635e8;
   --footer: #111112;
+  --site-width: 1400px;
   --container: 1528px;
   --container-padding: clamp(20px, 4.2vw, 64px);
   --radius: 28px;
@@ -19,9 +20,20 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   color: var(--ink);
-  background: #fff;
+  background: #eef0f3;
   font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
   line-height: 1.6;
+}
+
+.site-header,
+main,
+.site-footer {
+  width: min(100%, var(--site-width));
+  margin-inline: auto;
+}
+
+main {
+  background: #fff;
 }
 
 a,
@@ -352,11 +364,14 @@ button:hover {
 }
 
 .facts {
-  color: #fff;
-  background: #111;
+  background: var(--surface);
 }
 
 .facts-inner {
+  width: calc(100% - (var(--container-padding) * 2));
+  max-width: calc(var(--container) - (var(--container-padding) * 2));
+  color: #fff;
+  background: #111;
   padding-block: clamp(70px, 8vw, 112px) clamp(82px, 9vw, 130px);
   text-align: center;
 }
@@ -965,6 +980,10 @@ blockquote {
   .facts-actions {
     margin-top: 42px;
     gap: 14px;
+  }
+
+  .facts-inner h2 {
+    font-size: clamp(27px, 8vw, 35px);
   }
 
   .facts-grid {
